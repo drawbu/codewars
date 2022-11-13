@@ -6,8 +6,6 @@ def recoverSecret(triplets: list[list[str]]) -> str:
     for triplet in triplets:
         data[triplet[1]].append(triplet[0])
         data[triplet[2]] += [triplet[0], triplet[1]]
-    secret = []
-
     for key in data.copy():
         for letter in data[key]:
             data[key] += data[letter]
@@ -15,7 +13,7 @@ def recoverSecret(triplets: list[list[str]]) -> str:
     data = dict(data)
     for key in data:
         data[key] = len(data[key])
-    return "".join(secret)
+    return "".join([key[0] for key in sorted(data.items(), key=lambda item: item[1])])
 
 
 def test_recoverSecret():
