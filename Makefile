@@ -6,7 +6,7 @@ PYTHON_TEST_ARG=
 
 $(PYTHON_ENV):
 	@ $(PYTHON_BASE_INTERPRETER) -m venv $(PYTHON_ENV_NAME)
-	@ $(PYTHON_ENV)/pip install -r requirements.txt
+	@ $(PYTHON_ENV)/pip install -r python/requirements.txt
 
 test: $(PYTHON_ENV)
 	@ $(PYTHON_ENV)/pytest python/**/*.py $(PYTHON_TEST_ARG)
