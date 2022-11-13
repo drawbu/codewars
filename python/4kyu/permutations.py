@@ -2,22 +2,21 @@
 
 
 def permutations(s: str) -> list[str]:
-    result = []
-    temp = [s]
+    result: set[str] = set()
+    temp: set[str] = {s}
     while temp:
-        e = temp[0]
-        result.append(e)
-        temp.pop(0)
+        e = temp.pop()
+        result.add(e)
 
         for i in range(len(e) - 1):
             if e[i] == e[i + 1]:
                 continue
 
             perm = e[:i] + e[i + 1] + e[i] + e[i + 2:]
-            if perm in temp or perm in result:
+            if perm in result:
                 continue
-            temp.append(perm)
-    return result
+            temp.add(perm)
+    return list(result)
 
 
 def test_permutations() -> None:
@@ -34,3 +33,9 @@ def test_permutations() -> None:
         "cdab", "cdba", "dabc", "dacb", "dbac", "dbca", "dcab", "dcba",
     ]
     assert timeit.timeit(lambda: permutations("abdefgh"), number=1) < 0.25
+
+
+if __name__ == "__main__":
+    import timeit
+
+    print(f"{timeit.timeit(lambda: permutations('abdefgh'), number=1):.2f}s")
