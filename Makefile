@@ -1,19 +1,35 @@
-PYTHON_BASE_INTERPRETER=python3
-PYTHON_ENV_NAME=venv
-PYTHON_ENV=$(PYTHON_ENV_NAME)/bin
-PYTHON_DIR=python
-PYTHON_TEST_ARG=
+PY_ENV = venv
+PY_BIN = $(PY_ENV)/bin
 
-$(PYTHON_ENV):
-	@ $(PYTHON_BASE_INTERPRETER) -m venv $(PYTHON_ENV_NAME)
-	@ $(PYTHON_ENV)/pip install -r python/requirements.txt
+PY_DIR = python
+PYTEST_ARGS=
 
-test: $(PYTHON_ENV)
-	@ $(PYTHON_ENV)/pytest python/**/*.py $(PYTHON_TEST_ARG)
+all: test_py
 
-adv_test:
-	@ make test PYTHON_TEST_ARG=-vv
+$(PY_BIN)/python3:
+    @ python3 -m venv $(PY_ENV)
+    @ chmod +x $(PY_BIN)/activate
+    @ ./$(PY_BIN)/activate
+
+$(PY_BIN)/pip: $(PY_BIN)/python3
+
+$(PY_BIN)/pytest: $(PY_BIN)/pip
+    @ $(PY_BIN)/pip3 install -r $(PY_DIR)/requirements.txt
+
+test_py: $(PY_BIN)/pytest
+    @ $(PY_BIN)/pytest $(PY_DIR)/**/*.py $(PYTEST_ARGS)
+
+test_py_d: PYTHON_TEST_ARG += -vv
+test_py_d: test_py
+
+.PHONY: test_py test_py_d
 
 clean:
-	@ rm -rf */.pytest_cache
-	@ rm -rf $(PYTHON_ENV_NAME)
+    @ rm -rf */.pytest_cache
+    @ rm -rf .pytest_cache
+    @ rm -rf .coverage
+
+fclean: clean
+    @ rm -rf $(PYTHON_ENV_NAME)
+
+.PHONY: clean fclean
