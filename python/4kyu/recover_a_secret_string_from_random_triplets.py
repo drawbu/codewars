@@ -2,23 +2,23 @@ from collections import defaultdict
 
 
 def recoverSecret(triplets: list[list[str]]) -> str:
-    data = defaultdict(list)
+    data = defaultdict(set)
     for triplet in triplets:
-        data[triplet[1]].append(triplet[0])
-        data[triplet[2]] += [triplet[0], triplet[1]]
-    for key in data.copy():
-        for letter in data[key]:
-            data[key] += data[letter]
-        data[key] = list(set(data[key]))
-    data = dict(data)
-    for key in data:
-        data[key] = len(data[key])
-    return "".join([key[0] for key in sorted(data.items(), key=lambda item: item[1])])
+        data[triplet[1]].add(triplet[0])
+        data[triplet[2]].update({triplet[0], triplet[1]})
+
+    for _ in range(1000):
+        for key in data.copy():
+            for letter in data[key].copy():
+                data[key].update(data[letter])
+
+    return "".join(
+        key[0] for key in sorted(data.items(), key=lambda item: len(item[1]))
+    )
 
 
 def test_recoverSecret():
-    secret = "whatisup"
-    triplets = [
+    assert recoverSecret([
         ['t', 'u', 'p'],
         ['w', 'h', 'i'],
         ['t', 's', 'u'],
@@ -26,9 +26,4 @@ def test_recoverSecret():
         ['h', 'a', 'p'],
         ['t', 'i', 's'],
         ['w', 'h', 's']
-    ]
-    assert recoverSecret(triplets) == secret
-
-
-if __name__ == "__main__":
-    test_recoverSecret()
+    ]) == "whatisup"
