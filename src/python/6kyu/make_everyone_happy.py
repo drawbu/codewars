@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/61eeb6e7577f050037b17a2d
+
 def smile(text):
     for eyes in (":", ";", "="):
         for nose in ("-", "~", ""):

@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/586dd26a69b6fd46dd0000c0/solutions/python
+
 class Memory:
     def __init__(self):
         self.mem = 0

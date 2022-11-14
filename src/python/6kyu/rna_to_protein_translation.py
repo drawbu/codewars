@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/555a03f259e2d1788c000077
+
 PROTEIN_DICT = {
     # Phenylalanine
     'UUC': 'F', 'UUU': 'F',
