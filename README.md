@@ -29,3 +29,14 @@ These are the solution for the kata I resolved.
 - Esolang interpreters 1 [`.py`](src/python/6kyu/esolang_interpreters_1.py)
 
 </details>
+
+### 5 kyu (1 katas)
+
+<details>
+  <summary>
+    <i>show</i>
+  </summary>
+
+- Esolang interpreters 2 [`.py`](src/python/5kyu/esolang_interpreters_2.py)
+
+</details>
