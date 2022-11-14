@@ -17,7 +17,7 @@ These are the solution for the kata I resolved.
 
 </details>
 
-### 6 kyu (2 katas)
+### 6 kyu (3 katas)
 
 <details>
   <summary>
@@ -26,5 +26,6 @@ These are the solution for the kata I resolved.
 
 - Make everyone happy [`.py`](src/python/6kyu/make_everyone_happy.py)
 - Rna to protein translation [`.py`](src/python/6kyu/rna_to_protein_translation.py)
+- Esolang interpreters 1 [`.py`](src/python/6kyu/esolang_interpreters_1.py)
 
 </details>
