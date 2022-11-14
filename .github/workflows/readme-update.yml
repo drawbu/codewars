@@ -1,0 +1,28 @@
+name: Updating readme
+
+on:
+  workflow_dispatch:
+  push: { branches: [ "master", "main" ] }
+
+jobs:
+  reamde-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          architecture: 'x64'
+
+      - name: Set up git
+        run: |
+          git config --local user.email "69208565+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git pull
+      - name: Update README
+        run: |
+          python3 -m scripts.readme_update
+          git commit -m ":memo: Updated Readme" -a || echo "No changes to commit"
+          git push || echo "No changes to push"
