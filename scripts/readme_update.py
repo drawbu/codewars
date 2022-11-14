@@ -17,17 +17,21 @@ for language in os.listdir("src/"):
             continue
 
         text += (
-            f"\n### {difficulty[0]} {difficulty[1:]}\n\n"
+            f"\n### {difficulty[0]} {difficulty[1:]} "
+            f"({len(os.listdir(f'src/{language}/{difficulty}'))} katas)\n\n"
             "<details>\n"
-            f"  <summary>\n"
-            f"    Show the "
-            f"{len(os.listdir(f'src/{language}/{difficulty}'))} "
-            f"solved katas\n"
-            f"  </summary>\n"
+            "  <summary>\n"
+            "    <i>show</i>\n"
+            "  </summary>\n\n"
         )
         for kata in os.listdir(f"src/{language}/{difficulty}"):
-            text += f"- {kata.split('.')[0].replace('_', ' ').capitalize()}\n"
-        text += "</details>\n"
+            text += (
+                f"- {kata.split('.')[0].replace('_', ' ').capitalize()} "
+                f"[`.{kata.split('.')[1]}`]"
+                f"(src/{language}/{difficulty}/{kata})\n"
+            )
+
+        text += "\n</details>\n"
 
 with open("README.md", "w") as f:
     f.write(text)
