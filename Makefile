@@ -1,7 +1,7 @@
 PY_ENV = venv
 PY_BIN = $(PY_ENV)/bin
 
-PY_DIR = python
+PY_DIR = src/python
 PYTEST_ARGS=
 
 all: test_py
@@ -25,7 +25,8 @@ test_py_d: test_py
 .PHONY: test_py test_py_d
 
 clean:
-	@ rm -rf */.pytest_cache
+	@ rm -rf $(PY_DIR)/*/.pytest_cache
+	@ rm -rf $(PY_DIR)/*/__pycache__
 	@ rm -rf .pytest_cache
 	@ rm -rf .coverage
 
