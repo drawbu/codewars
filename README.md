@@ -17,7 +17,7 @@ These are the solution for the kata I resolved.
 
 </details>
 
-### 8 kyu (1 katas)
+### 8 kyu (2 katas)
 
 <details>
   <summary>
@@ -25,6 +25,7 @@ These are the solution for the kata I resolved.
   </summary>
 
 - Dna to rna conversion [`.py`](src/python/8kyu/DNA_to_RNA_conversion.py)
+- Grasshopper - check for factor [`.py`](src/python/8kyu/grasshopper_-_check_for_factor.py)
 
 </details>
 
