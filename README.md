@@ -17,6 +17,17 @@ These are the solution for the kata I resolved.
 
 </details>
 
+### 8 kyu (1 katas)
+
+<details>
+  <summary>
+    <i>show</i>
+  </summary>
+
+- Dna to rna conversion [`.py`](src/python/8kyu/DNA_to_RNA_conversion.py)
+
+</details>
+
 ### 6 kyu (3 katas)
 
 <details>
