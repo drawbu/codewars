@@ -17,7 +17,7 @@ These are the solution for the kata I resolved.
 
 </details>
 
-### 5 kyu (1 katas)
+### 5 kyu (2 katas)
 
 <details>
   <summary>
@@ -25,19 +25,21 @@ These are the solution for the kata I resolved.
   </summary>
 
 - Esolang interpreters 2 [`.py`](src/python/5kyu/esolang_interpreters_2.py)
+- Rgb to hex conversion [`.py`](src/python/5kyu/rgb_to_hex_conversion.py)
 
 </details>
 
-### 6 kyu (3 katas)
+### 6 kyu (4 katas)
 
 <details>
   <summary>
     <i>show</i>
   </summary>
 
-- Make everyone happy [`.py`](src/python/6kyu/make_everyone_happy.py)
+- Convert string to camel case [`.py`](src/python/6kyu/convert_string_to_camel_case.py)
 - Rna to protein translation [`.py`](src/python/6kyu/rna_to_protein_translation.py)
 - Esolang interpreters 1 [`.py`](src/python/6kyu/esolang_interpreters_1.py)
+- Make everyone happy [`.py`](src/python/6kyu/make_everyone_happy.py)
 
 </details>
 
