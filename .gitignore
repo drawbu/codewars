@@ -5,3 +5,7 @@
 ### Python
 venv
 **/.pytest_cache
+
+### Executables
+*.out
+main
